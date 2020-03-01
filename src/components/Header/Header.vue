@@ -4,10 +4,9 @@
     <div class="tel" v-if="showTel"><a href="tel:4007227722">400-722-7722</a></div>
     <div class="more">
       <div :class='"login "+loginClass' @click="openLogin">
-        <div class="my"><img src="../../assets/images/my.png" alt=""></div>
-        <div class="btn-login">{{username}}</div>
+        <div class="my"><img src="../../assets/images/m-kx_03.png" alt=""></div>
       </div>
-      <img @click="showLayer" class="menu" src="../../assets/images/menu.png" alt="">
+      <img @click="showLayer" class="menu" src="../../assets/images/m-kx_06.png" alt="">
     </div>
     <Menu :showMenu="showMenu" v-on:closelayer="closeLayer"></Menu>
     <Login :showLogin="showLogin" v-on:closeLogin="closeLogin" v-on:toRegister="toRegister"></Login>
@@ -128,6 +127,8 @@
         display: flex;
         flex-wrap: wrap;
         position: relative;
+        align-items: center;
+        margin-right: .32rem;
         .btn-login{
           line-height: .32rem;
           height: .3rem;
@@ -137,16 +138,13 @@
           overflow: hidden;
         }
         .my{
-          width: .43rem;
-          height: .39rem;
-          margin-top: .125rem;
-          background-color: #e5e5e5;
           text-align: center;
           border-radius: .1rem;
+          height: 100%;
           img{
-            margin-top: .045rem;
-            width: .26rem;
-            height: .3rem;
+            width: .51rem;
+            height: .51rem;
+            margin-top: .065rem;
           }
         }
       }
@@ -159,9 +157,9 @@
         }
       }
       .menu{
-        width: .67rem;
-        height: .49rem;
-        margin: .075rem 0;
+        width: .49rem;
+        height: .39rem;
+        margin: .125rem .08rem .125rem 0;
       }
     }
   }

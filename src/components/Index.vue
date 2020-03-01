@@ -4,6 +4,14 @@
     <div class="index-body">
       <div class="jipiao">
         <ul class="tab">
+          <li :class="tab==0?'cur':''" @click="tabType(0)">国际机票</li>
+          <li :class="tab==1?'cur':''" @click="tabType(1)">国内机票</li>
+        </ul>
+        <div class="book-change-org">
+          <div class="book-btn cur" data-type="2">中国大陆始发</div>
+          <div class="book-btn" data-type="1">境外始发</div>
+        </div>
+        <ul class="flight-tab">
           <li :class="tab==0?'cur':''" @click="tabType(0)">单程</li>
           <li :class="tab==1?'cur':''" @click="tabType(1)">往返</li>
           <li :class="tab==2?'cur':''" @click="tabType(2)">定制行程</li>
@@ -51,6 +59,15 @@
           <div class="forget" v-if="isVip"><span @click="forgetPassword">忘记密码？</span></div>
           <div class="btn" @click="customTrip">提交</div>
         </div>
+      </div>
+      <div class="more-discount">
+        <img src="../assets/images/m-kx_15.png" alt="">
+      </div>
+      <div class="more-discount">
+        <img src="../assets/images/m-kx_18.png" alt="">
+      </div>
+      <div class="more-discount">
+        <img src="../assets/images/m-kx_56.png" alt="">
       </div>
       <div class="vipEquity">
         <img src="../assets/images/air_hyqy.png" alt="">
@@ -643,12 +660,12 @@
     .index-body{
       padding: .2rem .14rem;
       font-size: .28rem;
-      background: url('../assets/images/air_banner.png') no-repeat top center;
+      background: url('../assets/images/m-kx-bg_03.png') no-repeat top center;
       background-size: 100% auto;
       background-color: #f4f4f4;
       .jipiao{
         background-color: #fff;
-        padding: 0 .2rem .2rem .2rem;
+        padding: 0 .3rem .2rem .3rem;
         color: #333;
         border-radius: .1rem;
         margin-top: 1.3rem;
@@ -669,6 +686,76 @@
             color: #f00000;
             position: relative;   
             border-bottom: .04rem solid #f00000;         
+          }
+        }
+        .book-change-org {
+          height: .88rem;
+          line-height: .88rem;
+          display: flex;
+          padding-left: .08rem;
+          font-size: .28rem;
+          .book-btn {
+            position: relative;
+            margin-right: .3rem;
+            padding-left: .4rem;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+          }
+          .book-btn::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .315rem;
+            width: .25rem;
+            height: .25rem;
+            border: .02rem solid #888;
+            box-sizing: border-box;
+            border-radius: .25rem;
+          }
+          .cur::before {
+            border: .02rem solid #de1721
+          }
+          .cur::after {
+            content: '';
+            position: absolute;
+            left: .07rem;
+            top: .38rem;
+            width: .12rem;
+            height: .12rem;
+            background-color: #de1721;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: .2rem
+          }
+        }
+        .flight-tab{
+          height: .66rem;
+          display: flex;
+          justify-content: space-between;
+          li{
+            width: 2.04rem;
+            height: .54rem;
+            line-height: .54rem;
+            border-radius: .08rem;
+            text-align: center;
+            background-color: #f2f2f2;
+            position: relative;
+          }
+          .cur{
+            background-color: #de1721;
+            color: #fff;
+          }
+          .cur::after{
+            content: '';
+            border-width: .12rem .12rem 0 .12rem;
+            border-style: solid;
+            border-color: #e01114 transparent #e01114 transparent;
+            position: absolute;
+            left: .94rem;
+            top: .53rem;
           }
         }
         .hangban{
@@ -739,12 +826,12 @@
           .btn{
             display: block;
             margin: .5rem auto 0 auto;
-            width: 4.64rem;
-            height: .8rem;
-            line-height: .8rem;
+            width: 5.96rem;
+            height: .88rem;
+            line-height: .88rem;
             text-align: center;
             background-color: #f00000;
-            border-radius: .1rem;
+            border-radius: 1rem;
             font-size: .32rem;
             color: #fff;
           }
@@ -823,6 +910,13 @@
           background-color: #C50000;
         }
       }
+      .more-discount{
+        margin-top: .3rem;
+        img{
+          display: block;
+          width: 100%;
+        }
+      }
       .vipEquity{
         margin: 0;
         margin-top: .4rem;
@@ -866,141 +960,6 @@
         }
       }
 
-
-      .line-info{
-        height: .9rem;
-        line-height: .9rem;
-        width: 100%;
-        background-color: #333;
-        margin-top: .06rem;
-        padding: 0 .3rem;
-        box-sizing: border-box;
-        color: #fff;
-        font-size: .32rem;
-        span{
-          float: right;
-          height: .64rem;
-          line-height: .64rem;
-          margin-top: .13rem;
-          img{
-            margin-right: -.1rem;
-            width: .64rem;
-            height: .64rem;
-          }
-        }
-      }
-      .air-more{
-        padding: .3rem 0;
-        .title{
-          text-align: center;
-          font-size: .28rem;
-          span{
-            color: #f00000;
-          }
-        }
-        .list{
-          margin: 0;
-          .list-item{
-            border: .02rem solid #f29c9f;
-            width: 6.2rem;
-            margin: 1.4rem auto 0 auto;
-            .iname{
-              height: .4rem;
-              margin: -.2rem auto 0 auto;
-              text-align: center;
-              span{
-                padding: 0 .2rem;
-                background-color: #fff;
-              }
-            }
-            .info{
-              display: flex;
-              margin-top: .3rem;
-              justify-content: space-between;
-              padding: 0 .4rem;
-              box-sizing: border-box;
-              .air{
-                display: flex;
-                img{
-                  width: .36rem;
-                  height: .36rem;
-                  margin-right: .1rem;
-                }
-              }
-              .price{
-                font-size: .2rem;
-                span{
-                  font-size: .36rem;
-                  color: #f00000;
-                }
-              }
-            }
-            .date{
-              margin: .5rem 0 .2rem 0;
-              padding: 0 .3rem;
-              color: #fd961b;
-              position: relative;
-              text-align: center;
-              hr{
-                border: .012rem solid #fd961b;
-                margin: 0;
-                padding: 0;
-              }
-              .time{
-                font-size: .24rem;
-                text-align: center;
-                background-color: #fff;
-                padding: 0 .2rem;
-                position: relative;
-                top: -.2rem;
-              }
-            }
-            .btn{
-              font-size: .3rem;
-              background-color: #fca8a8;
-              height: .6rem;
-              line-height: .6rem;
-              text-align: left;
-              padding-left: .4rem;
-              width: 2.6rem;
-              margin: 0 auto -.3rem auto;
-              border-radius: .1rem;
-              box-sizing: border-box;
-              position: relative;
-              box-shadow: .05rem 0 .08rem 0 #aaa;
-              span{
-                display: block;
-                position: absolute;
-                top: .1rem;
-                right: .3rem;
-                background-color: #fff;
-                width: .4rem;
-                height: .4rem;
-                border-radius: .4rem;
-                img{
-                  width: .26rem;
-                  height: .26rem;
-                  margin: .07rem;
-                }
-              }
-            }
-            .btn:active{
-              background-color: #F68787;
-            }
-          }
-          .list-item:first-child{
-            margin-top: .6rem;
-          }
-        }
-      }
-      .more{
-        position: relative;
-        margin: .7rem 0 .2rem 0;
-        height: .4rem;
-        background: url('../assets/images/more.png') no-repeat center;
-        background-size: .24rem .228rem;
-        animation: td 1.2s linear 0s infinite;
-      }
     }
   }
   @keyframes td{
