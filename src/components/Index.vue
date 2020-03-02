@@ -4,25 +4,28 @@
     <div class="index-body">
       <div class="jipiao">
         <ul class="tab">
-          <li :class="tab==0?'cur':''" @click="tabType(0)">国际机票</li>
-          <li :class="tab==1?'cur':''" @click="tabType(1)">国内机票</li>
+          <li :class="tabOrg==0?'cur':''" @click="tabOrgType(0)">国际机票</li>
+          <li :class="tabOrg==1?'cur':''" @click="tabOrgType(1)">国内机票</li>
         </ul>
-        <div class="book-change-org">
-          <div class="book-btn cur" data-type="2">中国大陆始发</div>
-          <div class="book-btn" data-type="1">境外始发</div>
+        <div class="book-change-org" v-if="tabOrg==0">
+          <div :class="tabOut==0?'cur':''" @click="tabOutType(0)">中国大陆始发</div>
+          <div :class="tabOut==1?'cur':''" @click="tabOutType(1)">境外始发</div>
+        </div>
+        <div class="book-change-org" v-else>
+          <img src="../assets/images/m-kx_11.png" alt="">
         </div>
         <ul class="flight-tab">
           <li :class="tab==0?'cur':''" @click="tabType(0)">单程</li>
-          <li :class="tab==1?'cur':''" @click="tabType(1)">往返</li>
-          <li :class="tab==2?'cur':''" @click="tabType(2)">定制行程</li>
+          <li :class="tab==1?'cur':''" @click="tabType(1)" v-if="tabOrg==0">往返</li>
+          <li :class="tab==2?'cur':''" @click="tabType(2)" v-if="tabOrg==0">定制行程</li>
         </ul>
         <div v-if="tab==0 || tab==1" class="hangban">
           <div class="hb-long" @click="showStartCity">
-            <span>出发城市</span>
+            <span class="sp-start">出发城市</span>
             <span class="txt"><span v-if="startCityShort">{{startCityValue}}({{startCityShort}})</span></span>
           </div>
           <div class="hb-long" @click="showEndCity">
-            <span>到达城市</span>
+            <span class="sp-end">到达城市</span>
             <span class="txt"><span v-if="endCityShort">{{endCityValue}}({{endCityShort}})</span></span>
           </div>
           <div class="hb-middle" @click="showStartDate">
@@ -61,13 +64,45 @@
         </div>
       </div>
       <div class="more-discount">
-        <img src="../assets/images/m-kx_15.png" alt="">
+        <img @click="goFirstCabin" src="../assets/images/m-kx_15.png" alt="">
       </div>
       <div class="more-discount">
-        <img src="../assets/images/m-kx_18.png" alt="">
+        <img @click="toQYYJ" src="../assets/images/m-kx_18.png" alt="">
+      </div>
+      <div class="qy-comper">
+        <ul class="comper-list">
+          <li class="comper-item">
+              <img class="img1" src="../assets/images/m-kx_27.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img2" src="../assets/images/m-kx_21.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img3" src="../assets/images/m-kx_24.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img4" src="../assets/images/m-kx_39.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img5" src="../assets/images/m-kx_33.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img6" src="../assets/images/m-kx_36.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img7" src="../assets/images/m-kx_50.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img8" src="../assets/images/m-kx_47.png" alt="">
+          </li>
+          <li class="comper-item">
+              <img class="img9" src="../assets/images/m-kx_44.png" alt="">
+          </li>
+        </ul>
+        <div class="more">了解更多 ></div>
       </div>
       <div class="more-discount">
-        <img src="../assets/images/m-kx_56.png" alt="">
+        <img @click="toZFCG" src="../assets/images/m-kx_56.png" alt="">
       </div>
       <div class="vipEquity">
         <img src="../assets/images/air_hyqy.png" alt="">
@@ -99,6 +134,8 @@
     data() {
       return {
         tab : 0,
+        tabOrg : 0,
+        tabOut: 0,
         startDateShow: false,
         endDateShow: false,
         startTime: '',
@@ -108,6 +145,8 @@
         cityList: [],
         startCityList: [],
         endCityList: [],
+        sCityList: [],
+        eCityList: [],
         tehuiList: [],
         num: 2,
         visibleStartCity: false,
@@ -142,6 +181,25 @@
     methods: {
       tabType: function(t) {
         this.tab = t
+      },
+      tabOrgType: function(t) {
+        this.tabOrg = t
+        this.tab = 0
+        this.endCityList = this.sCityList
+        this.startCityList = this.sCityList
+        this.startCityShort = ''
+        this.startCityValue = ''
+        this.endCityShort = ''
+        this.endCityValue = ''
+      },
+      tabOutType: function (t) {
+        this.tabOut = t
+        this.endCityList = this.sCityList
+        this.startCityList = this.eCityList
+        this.startCityShort = ''
+        this.startCityValue = ''
+        this.endCityShort = ''
+        this.endCityValue = ''
       },
       findFlight: function () {
         if (this.startCityShort === "") {
@@ -347,18 +405,6 @@
         }
         return _text
       },
-      selFlight(item){
-        this.utils.setItem("scode", item.StartCode);
-        this.utils.setItem("ecode", item.EndCode);
-        this.utils.setItem("stime", item.DataS);
-        this.utils.setItem("etime", item.DataE);
-        this.utils.setItem("type", item.Type === '往返');
-        this.utils.setItem("scity", item.sCity);
-        this.utils.setItem("ecity", item.eCity);
-        this.utils.setItem("sflight", item.sportName);
-        this.utils.setItem("eflight", item.eportName);
-        this.$router.push({path: '/flightlist'})
-      },
       gotoMy(){
         let userID=this.utils.getItem("kxUserID");
         if(userID && userID != "null"){
@@ -366,6 +412,21 @@
             path: '/my'
           })
         }
+      },
+      goFirstCabin () {
+        this.$router.push({
+          path: '/firstcabin'
+        })
+      },
+      toQYYJ () {
+        this.$router.push({
+          path: '/qyyj'
+        })
+      },
+      toZFCG () {
+        this.$router.push({
+          path: '/zfcg'
+        })
       },
       showStartDate(){
         this.startEndTime = this.utils.dateFormat(this.utils.getAfterNDate((new Date()), 1, 'y'), 'yyyy-MM-dd')
@@ -510,6 +571,7 @@
       sArr[m].items.push(sCity[c])
     }
     vue.startCityList = sArr
+    vue.sCityList = sArr
   }
   //获取到达城市
   function getEndCityList(vue, data){
@@ -534,6 +596,7 @@
       eArr[m].items.push(eCity[a])
     }
     vue.endCityList = eArr
+    vue.eCityList = eArr
   }
   //获取特惠机票
   function getAirTehui(vue){
@@ -694,7 +757,8 @@
           display: flex;
           padding-left: .08rem;
           font-size: .28rem;
-          .book-btn {
+          align-items: center;
+          >div {
             position: relative;
             margin-right: .3rem;
             padding-left: .4rem;
@@ -704,16 +768,16 @@
             -ms-user-select: none;
             user-select: none
           }
-          .book-btn::before {
+          >div::before {
             content: '';
             position: absolute;
             left: 0;
             top: .315rem;
-            width: .25rem;
-            height: .25rem;
+            width: .24rem;
+            height: .24rem;
             border: .02rem solid #888;
             box-sizing: border-box;
-            border-radius: .25rem;
+            border-radius: 30px;
           }
           .cur::before {
             border: .02rem solid #de1721
@@ -721,14 +785,20 @@
           .cur::after {
             content: '';
             position: absolute;
-            left: .07rem;
-            top: .38rem;
-            width: .12rem;
-            height: .12rem;
+            left: .08rem;
+            top: .37rem;
+            width: .1rem;
+            height: .1rem;
             background-color: #de1721;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            border-radius: .2rem
+            border-radius: 30px;
+          }
+          img{
+            display: block;
+            width: 5.28rem;
+            height: .38rem;
+            margin: 0 auto;
           }
         }
         .flight-tab{
@@ -754,7 +824,7 @@
             border-style: solid;
             border-color: #e01114 transparent #e01114 transparent;
             position: absolute;
-            left: .94rem;
+            left: .9rem;
             top: .53rem;
           }
         }
@@ -768,48 +838,80 @@
             width: 100%;
             height: .9rem;
             background-color: #ffffff;
-            line-height: .92rem;
+            line-height: .9rem;
             margin-top: .2rem;
             padding: 0 .2rem;
             box-sizing: border-box;
             display: flex;
             justify-content: space-between;
             border: .02rem solid #ccc;
+            border-radius: .08rem;
             .hb-long:first-child{
               width: .56rem;
+            }
+            .sp-start{
+              background: url('../assets/images/icon_start.png') no-repeat left center;
+              background-size: .27rem;
+              padding-left: .34rem;
+              width: 1.4rem;
+            }
+            .sp-end{
+              background: url('../assets/images/icon_end.png') no-repeat left center;
+              background-size: .27rem;
+              padding-left: .34rem;
+              width: 1.4rem;
             }
             .txt{
               position: relative;
               margin: .2rem 0;
               height: .5rem;
-              line-height: .52rem;
+              line-height: .5rem;
               width: 4.96rem;
               border-left: 1px solid #ccc;
               padding-left: .2rem;
               box-sizing: border-box;
             }
-            .txt::after{
+            .txt::before {
+              content: '';
               position: absolute;
-              top: 0;
+              top: .04rem;
               right: 0;
-              display: block;
-              content: ' ';
-              width: .5rem;
-              height: .5rem;
-              background: url('../assets/images/search.png') no-repeat center #888888;
-              background-size: .33rem .3rem;
+              width: .38rem;
+              height: .38rem;
+              border-radius: .56rem;
+              background-color: #f1f1f1
+            }
+            .txt::after {
+              content: '';
+              position: absolute;
+              top: .14rem;
+              right: .1rem;
+              width: .1rem;
+              height: .1rem;
+              border-right: .04rem solid #fff;
+              border-bottom: .04rem solid #fff;
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg)
             }
           }
           .hb-middle{
             position: relative;
             width: 3.2rem;
             height: .9rem;
-            background-color: #ffffff;
             line-height: .9rem;
             margin-top: .2rem;
-            padding: 0 .2rem;
+            padding: 0 .2rem 0 .54rem;
             box-sizing: border-box;
+            border-radius: .08rem;
             border: .02rem solid #ccc;
+            background: url('../assets/images/icon_sdate.png') no-repeat left center;
+            background-color: #ffffff;
+            background-size: .27rem;
+            background-position-x: .2rem;
+            span{
+              display: block;
+              line-height: .84rem;
+            }
           }
           .hb-middle::after{
             position: absolute;
@@ -819,9 +921,8 @@
             content: ' ';
             width: .5rem;
             height: .5rem;
-            background: url('../assets/images/date.png') no-repeat center;
+            background: url('../assets/images/icon_date.png') no-repeat center;
             background-size: .4rem .4rem;
-            background-color: #888888;
           }
           .btn{
             display: block;
@@ -915,6 +1016,44 @@
         img{
           display: block;
           width: 100%;
+        }
+      }
+      .qy-comper{
+        .comper-title{
+          font-size: .36rem;
+          text-align: center;
+        }
+        .comper-list{
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          .comper-item{
+            width: 2.4rem;
+            margin-top: .5rem;
+            img{
+              display: block;
+              margin: 0 auto;
+            }
+            .img1{ width: 1.76rem; }
+            .img2{ width: 1.45rem; }
+            .img3{ width: 1.15rem; }
+            .img4{ width: 1.8rem; }
+            .img5{ width: 1.5rem; }
+            .img6{ width: 1.34rem; }
+            .img7{ width: 1.46rem; }
+            .img8{ width: 1.62rem; }
+            .img9{ width: 1.5rem; }
+          }
+        }
+        .more{
+          color: #fff;
+          width: 2rem;
+          height: .6rem;
+          line-height: .6rem;
+          background-color: #C8C8CA;
+          text-align: center;
+          margin: .5rem auto;
+          border-radius: 30px;
         }
       }
       .vipEquity{

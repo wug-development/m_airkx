@@ -15,6 +15,9 @@ import Complaint from '@/components/Complaint'
 import OrderInfo from '@/components/OrderInfo'
 import AddLinkman from '@/components/AddLinkman'
 import AddPerson from '@/components/AddPerson'
+import FirstCabin from '@/components/FirstCabin'
+import QYYJ from '@/components/QYYJ'
+import ZFCG from '@/components/ZFCG'
 
 Vue.use(Router)
 
@@ -94,6 +97,21 @@ export default new Router({
       path: '/orderinfo',
       name: 'OrderInfo',
       component: OrderInfo
+    },
+    {
+      path: '/firstcabin',
+      name: 'FirstCabin',
+      component: FirstCabin
+    },
+    {
+      path: '/qyyj',
+      name: 'QYYJ',
+      component: QYYJ
+    },
+    {
+      path: '/zfcg',
+      name: 'ZFCG',
+      component: ZFCG
     }
   ]
 })

@@ -1,6 +1,6 @@
 <template>
   <div id="Header" class="header-box">
-    <div class="logo"><img src="../../assets/images/logo.png" alt=""> </div>
+    <div class="logo"><img @click="toHome" src="../../assets/images/logo.png" alt=""> </div>
     <div class="tel" v-if="showTel"><a href="tel:4007227722">400-722-7722</a></div>
     <div class="more">
       <div :class='"login "+loginClass' @click="openLogin">
@@ -56,6 +56,11 @@
         }else{
           this.showLogin = true
         }        
+      },
+      toHome () {
+        this.$router.push({
+          path: '/'
+        })
       },
       toRegister: function(){
         this.showLogin = false
