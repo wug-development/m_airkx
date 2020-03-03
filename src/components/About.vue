@@ -26,7 +26,23 @@
                 <img src="../assets/images/aboutme_11.png" alt="">
             </div>
             <div class="info-title">我们的资质</div>
-            
+            <ul class="info-zizhi-list">
+                <li><img src="../assets/images/zizhi/aboutme_17.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_19.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_21.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_23.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_25.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_27.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_36.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_38.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_40.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_45.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_47.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_49.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_53.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_55.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_58.png" alt=""></li>
+            </ul>
             <div class="add">公司地址：北京市东城区东直门南大街9号华普花园C座 -906</div>
         </div>
         <Footer></Footer>
@@ -91,8 +107,22 @@ export default {
                 width: 100%;
             }
         }
+        .info-zizhi-list{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            li{
+                width: 2.16rem;
+                margin-top: .4rem;
+                img{
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
         .add {
             color: #ff7e0c;
+                margin-top: .4rem;
         }
     }
 }
