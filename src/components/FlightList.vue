@@ -93,7 +93,10 @@
                   <input type="text" class="txt"  v-model="pass" maxlength="20">
                 </div>
               </div>
-              <div class="forget" v-if="isVip"><span @click="forgetPassword">忘记密码？</span></div>
+              <div class="forget" v-if="isVip">
+                <span class="tip">系统检测已是会员</span>
+                <span @click="forgetPassword">忘记密码？</span>
+              </div>
               <div class="btn" @click="customTrip">提交</div>
             </div>
           </div>
@@ -164,6 +167,7 @@
         this.utils.setItem('sairid', id)
         if(this.flightType === '往返'){
           let e = [];
+          console.log(this.backList, index)
           e.push(this.backList[index])
           this.utils.setItem('backFlight', JSON.stringify(e))
           this.$router.push({ path: '/returnflight' })
@@ -443,8 +447,12 @@
                     }
                     if(vue.flightType === '往返'){
                       let eitem = elist[i]
-                      for(let n=0; n<eitem.length; n++){
-                        eitem[n].airinfo = regs.data.aircomInfo[len+i]
+                      if (eitem) {
+                        for(let n=0; n<eitem.length; n++){
+                          eitem[n].airinfo = regs.data.aircomInfo[len+i]
+                        }
+                      } else {
+                        slist.splice(i-1,1)
                       }
                     }
                   }
@@ -918,10 +926,14 @@
             background-color: #C50000;
           }
           .forget{
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
             color: #999;
             line-height: .4rem;
             font-size: .24rem;
+            .tip{
+              color: #de1721;
+            }
           }
           
         }

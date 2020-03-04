@@ -1,7 +1,7 @@
 <template>
     <div id="QYYJ" class="qyyj-box">
         <Header isTel="true"></Header>
-        <div>
+        <div class="fc-himg">
             <img src="../assets/images/qyyj_02.png" alt="">
         </div>
         <div class="fc-content">
@@ -117,6 +117,13 @@ export default {
 .qyyj-box{
     margin: 0;
     background-color: #f4f4f4;
+    .fc-himg{
+        margin: 0;
+        img{
+            display: block;
+            width: 100%;
+        }
+    }
     .fc-content{
         padding: 0 .24rem;
         img{
