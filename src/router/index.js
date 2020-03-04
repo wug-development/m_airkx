@@ -18,10 +18,14 @@ import AddPerson from '@/components/AddPerson'
 import FirstCabin from '@/components/FirstCabin'
 import QYYJ from '@/components/QYYJ'
 import ZFCG from '@/components/ZFCG'
+import SearchResult from '@/components/SearchResult'
 
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior(to,from,savedPosition){
+    return {x:0,y:0}
+  },
   routes: [
     {
       path: '/',
@@ -112,6 +116,11 @@ export default new Router({
       path: '/zfcg',
       name: 'ZFCG',
       component: ZFCG
+    },
+    {
+      path: '/searchresult',
+      name: 'SearchResult',
+      component: SearchResult
     }
   ]
 })

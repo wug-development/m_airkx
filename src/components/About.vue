@@ -28,7 +28,7 @@
             <div class="info-title">我们的资质</div>
             <ul class="info-zizhi-list">
                 <li><img src="../assets/images/zizhi/aboutme_17.png" alt=""></li>
-                <li><img src="../assets/images/zizhi/aboutme_19.png" alt=""></li>
+                <li><img src="../assets/images/zizhi/aboutme_19.jpg" alt=""></li>
                 <li><img src="../assets/images/zizhi/aboutme_21.png" alt=""></li>
                 <li><img src="../assets/images/zizhi/aboutme_23.png" alt=""></li>
                 <li><img src="../assets/images/zizhi/aboutme_25.png" alt=""></li>

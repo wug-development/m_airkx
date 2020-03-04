@@ -59,7 +59,10 @@
               <input type="text" class="txt"  v-model="pass" maxlength="20">
             </div>
           </div>
-          <div class="forget" v-if="isVip"><span @click="forgetPassword">忘记密码？</span></div>
+          <div class="forget" v-if="isVip">
+            <span class="tip">系统检测已是会员</span>
+            <span @click="forgetPassword">忘记密码？</span>
+          </div>
           <div class="btn" @click="customTrip">提交</div>
         </div>
       </div>
@@ -184,22 +187,34 @@
       },
       tabOrgType: function(t) {
         this.tabOrg = t
-        this.tab = 0
-        this.endCityList = this.sCityList
-        this.startCityList = this.sCityList
         this.startCityShort = ''
         this.startCityValue = ''
         this.endCityShort = ''
         this.endCityValue = ''
+        if (t === 0) {
+          this.tab = 1
+          this.tabOut = 0
+          this.endCityList = this.eCityList
+          this.startCityList = this.sCityList
+        } else {          
+          this.tab = 0
+          this.endCityList = this.sCityList
+          this.startCityList = this.sCityList
+        }
       },
       tabOutType: function (t) {
         this.tabOut = t
-        this.endCityList = this.sCityList
-        this.startCityList = this.eCityList
         this.startCityShort = ''
         this.startCityValue = ''
         this.endCityShort = ''
         this.endCityValue = ''
+        if (t === 0) {
+          this.endCityList = this.eCityList
+          this.startCityList = this.sCityList
+        } else {
+          this.endCityList = this.sCityList
+          this.startCityList = this.eCityList
+        }
       },
       findFlight: function () {
         if (this.startCityShort === "") {
@@ -216,13 +231,21 @@
             this.utils.setItem("stime", this.startTime);
             this.utils.setItem("etime", this.endTime);
             this.utils.setItem("type", this.tab === 1);
+            this.utils.setItem("orgtype", this.tabOrg);
+            this.utils.setItem("outtype", this.tabOut);
             this.utils.setItem("scity", this.startCity);
             this.utils.setItem("ecity", this.endCity);
             this.utils.setItem("sflight", this.startCityValue);
             this.utils.setItem("eflight", this.endCityValue);
-            this.$router.push({
-              path: '/flightlist'
-            })
+            if (this.tabOrg === 0 && this.tabOut === 0) {
+              this.$router.push({
+                path: '/flightlist'
+              })
+            } else {
+              this.$router.push({
+                path: '/searchresult'
+              })
+            }
         }
       },
       customTrip: function () {
@@ -777,7 +800,7 @@
             height: .24rem;
             border: .02rem solid #888;
             box-sizing: border-box;
-            border-radius: 30px;
+            border-radius: 60px;
           }
           .cur::before {
             border: .02rem solid #de1721
@@ -785,14 +808,14 @@
           .cur::after {
             content: '';
             position: absolute;
-            left: .08rem;
-            top: .37rem;
+            left: .07rem;
+            top: .38rem;
             width: .1rem;
             height: .1rem;
             background-color: #de1721;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
-            border-radius: 30px;
+            border-radius: 60px;
           }
           img{
             display: block;
@@ -1001,10 +1024,14 @@
             border-radius: .1rem;
           }
           .forget{
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
             color: #999;
             line-height: .4rem;
             font-size: .24rem;
+            .tip{
+              color: #de1721;
+            }
           }
         }
         .btn:active{
