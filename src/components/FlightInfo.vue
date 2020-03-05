@@ -23,8 +23,8 @@
                 <div class="fline">
                   <div>{{startFlight.SPortName}}</div>
                   <div class="air">
-                    <img :src="startFlight.airinfo.Picture" alt="">
-                    {{startFlight.AirCode}}&nbsp;{{startFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{startFlight.airtype.AirName || startFlight.Jixing }}
+                    <img v-if="startFlight.airinfo && startFlight.airinfo.Picture" :src="startFlight.airinfo.Picture" alt="">
+                    {{startFlight.AirCode}}&nbsp;{{startFlight.airinfo && startFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{startFlight.airtype.AirName || startFlight.Jixing }}
                   </div>
                   <div>{{startFlight.EPortName}}</div>
                 </div>
@@ -42,8 +42,8 @@
                     <div class="fline">
                       <div>{{item.SPortName}}</div>
                       <div class="air">
-                        <img :src="startFlight.airinfo.Picture" alt="">
-                        {{item.AirCode}}&nbsp;{{startFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
+                        <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
+                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
                       </div>
                       <div>{{item.EPortName}}</div>
                     </div>
@@ -71,8 +71,8 @@
                 <div class="fline">
                   <div>{{backFlight.SPortName}}</div>
                   <div class="air">
-                    <img :src="backFlight.airinfo.Picture" alt="">
-                    {{backFlight.AirCode}}&nbsp;{{backFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{backFlight.airtype.AirName || backFlight.Jixing}}
+                    <img v-if="backFlight.airinfo && backFlight.airinfo.Picture" :src="backFlight.airinfo.Picture" alt="">
+                    {{backFlight.AirCode}}&nbsp;{{backFlight.airinfo && backFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{backFlight.airtype.AirName || backFlight.Jixing}}
                   </div>
                   <div>{{backFlight.EPortName}}</div>
                 </div>
@@ -90,8 +90,8 @@
                     <div class="fline">
                       <div>{{item.SPortName}}</div>
                       <div class="air">
-                        <img :src="backFlight.airinfo.Picture" alt="">
-                        {{item.AirCode}}&nbsp;{{backFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
+                        <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
+                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
                       </div>
                       <div>{{item.EPortName}}</div>
                     </div>
@@ -176,11 +176,13 @@
         })
         this.utils.setItem('startInfo', JSON.stringify(this.startFlight))
         let types = this.utils.getItem("type")
+        console.log(this.startFlight)
         if(types == true || types == 'true'){
           this.flightType = true
           this.backFlight = backList[0].find(function(i){
             return i.AirID == that.backID
           })
+        console.log(this.backFlight)
           tax = parseInt(this.startFlight.jipiao.WFS)
           this.price=parseInt(this.startFlight.piaojia.TicketPrice)
           this.utils.setItem('orderprice', this.price)

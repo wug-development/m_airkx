@@ -785,6 +785,8 @@
             position: relative;
             margin-right: .3rem;
             padding-left: .4rem;
+            height: .4rem;
+            line-height: .4rem;
             cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -795,7 +797,7 @@
             content: '';
             position: absolute;
             left: 0;
-            top: .315rem;
+            top: .08rem;
             width: .24rem;
             height: .24rem;
             border: .02rem solid #888;
@@ -809,7 +811,7 @@
             content: '';
             position: absolute;
             left: .07rem;
-            top: .38rem;
+            top: .14rem;
             width: .1rem;
             height: .1rem;
             background-color: #de1721;

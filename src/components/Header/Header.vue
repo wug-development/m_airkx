@@ -157,9 +157,6 @@
         .btn-login{
           color: #f29c9f;
         }
-        .my{
-          background-color: #f29c9f;
-        }
       }
       .menu{
         width: .49rem;

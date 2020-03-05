@@ -66,7 +66,7 @@ function getCityList(list, v){
     list = JSON.parse(list)
     return list.filter(function(i){
         i.items = i.items.filter(function(e){
-            return e.Pinyin.includes(v.toLocaleUpperCase()) || e.Display.includes(v.toLocaleUpperCase()) || e.city.includes(v.toLocaleUpperCase()) || e.Portname.includes(v.toLocaleUpperCase()) || e.en.includes(v.toLocaleUpperCase())
+            return e.Pinyin.includes(v.toLocaleUpperCase()) || e.Display.includes(v.toLocaleUpperCase()) || e.city.includes(v.toLocaleUpperCase()) || e.Portname.includes(v.toLocaleUpperCase()) || (e.en && e.en.includes(v.toLocaleUpperCase()))
         })
         return i.items.length>0
     })

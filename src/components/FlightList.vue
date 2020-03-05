@@ -17,7 +17,7 @@
               <div class="itembox-padding" v-if="i == 0 || index==othernum">
                 <div class="lab">
                   <div class="labs">
-                    <img :src="item.airinfo.Picture" alt="">
+                    <img v-if="item.airinfo" :src="item.airinfo.Picture" alt="">
                     <span>{{item.AirCode}}</span>
                     <label @click="showTgqLayer(item.piaojia.beizhu)">退改签规定</label>
                     <label>税金￥{{flightType == '往返'?item.jipiao.WFS:item.jipiao.DCS}}</label>
@@ -167,7 +167,6 @@
         this.utils.setItem('sairid', id)
         if(this.flightType === '往返'){
           let e = [];
-          console.log(this.backList, index)
           e.push(this.backList[index])
           this.utils.setItem('backFlight', JSON.stringify(e))
           this.$router.push({ path: '/returnflight' })
@@ -375,10 +374,10 @@
         params: param,
         name: vue,
         success: res => {
-          console.log(res)
           vue.Indicator.close()
           if(res.status === 200 && res.data.hangxian.length > 0){
             let data = res.data
+            console.log(JSON.parse(JSON.stringify(data)))
             let slist = []; //去程列表
             let elist = []; //返程列表
             let clist = []; //航空公司列表
@@ -386,7 +385,7 @@
             let month = parseInt(vue.startDate.split('-')[1])
             let len = data.hangxian.length
             //单程
-            for(let i=0, j=0; i<len; i++){
+            for(let i=0, j=0; i<len; i++,j++){
               let item = data.hangxian[i]
               if(item.length>0){
                 let sm = vue.startDate.split('-')[1]
@@ -399,15 +398,28 @@
                     item[m].jipiao = data.jipiao[i]
                     item[m].index = j
                     alist.push(item[m].Jixing)
+                    for (let h=0; h<data.zhuanji[i][m].length; h++) {
+                      let zjf = data.zhuanji[i][m][h]
+                      if (zjf && zjf.Jixing && alist.includes(zjf.Jixing)) {
+                        alist.push(zjf.Jixing)
+                      }
+                      if (zjf && zjf.CompanyCode && !clist.includes(zjf.CompanyCode)) {
+                        clist.push(zjf.CompanyCode)
+                      }
+                    }
                   }
-                  j++
                   slist.push(item)
+                } else {
+                  slist.push([])
                 }
+              } else {
+                slist.push([])
               }
             }
 
             //返程
             if(vue.flightType === '往返'){
+              len = data.hangxianS.length
               for(let i=0; i<len; i++){
                 let item = data.hangxianS[i]
                 if(item.length>0){                  
@@ -416,18 +428,32 @@
                   let piaojia = getPiaojia(data.piaojia[i], em, dnum)
                   if(piaojia){
                     clist.push(item[0].CompanyCode)
-                    for(let m=0; m<item.length; m++){
-                      item[m].otherFlight = data.zhuanjiS[i][m]
-                      item[m].piaojia = piaojia
-                      item[m].jipiao = data.jipiao[i]
-                      alist.push(item[m].Jixing)
+                    for(let l=0; l<item.length; l++){
+                      item[l].otherFlight = data.zhuanjiS[i][l]
+                      item[l].piaojia = piaojia
+                      item[l].jipiao = data.jipiao[i]
+                      alist.push(item[l].Jixing)
+                      for (let h=0; h<data.zhuanjiS[i][l].length; h++) {
+                        let zjf = data.zhuanjiS[i][l][h]
+                        if (zjf && zjf.Jixing && alist.includes(zjf.Jixing)) {
+                          alist.push(zjf.Jixing)
+                        }
+                        if (zjf && zjf.CompanyCode && !clist.includes(zjf.CompanyCode)) {
+                          clist.push(zjf.CompanyCode)
+                        }
+                      }
                     }
                     elist.push(item)
+                  } else {
+                    elist.push([])
                   }
+                } else {
+                  elist.push([])
                 }
               }
             }
-
+            console.log(clist)
+            console.log(alist)
             vue.utils.ajax({
               uri: 'FindAirComJixingServlet',
               params: {
@@ -438,23 +464,49 @@
               },
               name: vue,
               success: regs => {
+                console.log(JSON.parse(JSON.stringify(regs.data)))
                 if(regs.status === 200 && regs.data.airInfo.length > 0){
                   len = slist.length
-                  for(let i=0; i<len; i++){
+                  let dels = []
+                  for (let i=0; i<len; i++){
                     let sitem = slist[i]
                     for(let m=0; m<sitem.length; m++){
-                      sitem[m].airinfo = regs.data.aircomInfo[i]
+                      let _ix = clist.indexOf(sitem[m].CompanyCode)
+                      if (_ix > -1) {
+                        sitem[m].airinfo = regs.data.aircomInfo[_ix]
+                      }
+                      for (let t=0; t<sitem[m].otherFlight.length; t++) {
+                        let _of = sitem[m].otherFlight[t]
+                        let _ixof = clist.indexOf(_of.CompanyCode)
+                        if (_ixof > -1) {
+                          _of.airinfo = regs.data.aircomInfo[_ixof]
+                        }
+                      }
                     }
                     if(vue.flightType === '往返'){
                       let eitem = elist[i]
-                      if (eitem) {
+                      if (eitem && eitem.length > 0) {
                         for(let n=0; n<eitem.length; n++){
-                          eitem[n].airinfo = regs.data.aircomInfo[len+i]
+                          let _ixe = clist.indexOf(eitem[n].CompanyCode)
+                          if (_ixe > -1) {
+                            eitem[n].airinfo = regs.data.aircomInfo[_ixe]
+                          }
+                          for (let t=0; t<eitem[n].otherFlight.length; t++) {
+                            let _of = eitem[n].otherFlight[t]
+                            let _ixof = clist.indexOf(_of.CompanyCode)
+                            if (_ixof > -1) {
+                              _of.airinfo = regs.data.aircomInfo[_ixof]
+                            }
+                          }
                         }
                       } else {
-                        slist.splice(i-1,1)
+                        dels.push(i)
                       }
                     }
+                  }
+
+                  for(let z=dels.length-1;z>=0;z--) {
+                    slist.splice(dels[z],1)
                   }
 
                   let m = 0;

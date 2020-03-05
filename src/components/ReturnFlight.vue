@@ -18,7 +18,7 @@
             <div v-for="(item, i) in titem" :key="i" :class='i!=0?"itemboxs":"itembox"' v-if="i == 0 || index == othernum">
               <div class="lab">
                 <div class="labs">
-                  <img :src="item.airinfo.Picture" alt="">
+                  <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
                   <span>{{item.AirCode}}</span>
                   <label @click="showTgqLayer(item.piaojia.beizhu)">退改签规定</label>
                   <label>税金￥{{item.jipiao.WFS}}</label>
