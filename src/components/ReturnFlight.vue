@@ -16,43 +16,72 @@
         <ul class="flist-list">
           <li class="flist-item" v-for="(titem, index) in backList" :key="index">
             <div v-for="(item, i) in titem" :key="i" :class='i!=0?"itemboxs":"itembox"' v-if="i == 0 || index == othernum">
-              <div class="lab">
-                <div class="labs">
-                  <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
-                  <span>{{item.AirCode}}</span>
-                  <label @click="showTgqLayer(item.piaojia.beizhu)">退改签规定</label>
-                  <label>税金￥{{item.jipiao.WFS}}</label>
+              <div v-if="i == 0">
+                <div class="lab">
+                  <div class="labs">
+                    <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
+                    <span>{{item.AirCode}}</span>
+                    <label @click="showTgqLayer(item.piaojia.beizhu)">退改签规定</label>
+                    <label>税金￥{{item.jipiao.WFS}}</label>
+                  </div>
+                  <div class="btnprice">
+                    <span>￥<label>{{item.piaojia.TicketPrice}}</label></span>
+                    <a @click="selFlight(item.AirID, index)">预定</a>
+                  </div>
                 </div>
-                <div class="btnprice">
-                  <span>￥<label>{{item.piaojia.TicketPrice}}</label></span>
-                  <a @click="selFlight(item.AirID, index)">预定</a>
-                </div>
-              </div>
-              <div class="info">
-                <div class="info-go">
-                  <div class="time">{{item.STime}}</div>
-                  <div class="name">{{item.SPortName}}</div>
-                </div>
-                <div class="change"></div>
-                <div class="info-to">
-                  <div class="time">{{item.ETime}}</div>
-                  <div class="name">{{item.EPortName}}</div>
-                </div>
-              </div>             
-              <template v-if="item.otherFlight && item.otherFlight.length">
-                <div v-for="(flight, j) in item.otherFlight" :key="j" class="info info-change">
-                  <div class="change-name"><span>中转{{j+1}}次</span></div>
+                <div class="info">
                   <div class="info-go">
-                    <div class="time">{{flight.STime}}</div>
-                    <div class="name">{{flight.SPortName}}</div>
+                    <div class="time">{{item.STime}}</div>
+                    <div class="name">{{item.SPortName}}</div>
                   </div>
                   <div class="change"></div>
                   <div class="info-to">
-                    <div class="time">{{flight.ETime}}</div>
-                    <div class="name">{{flight.EPortName}}</div>
+                    <div class="time">{{item.ETime}}</div>
+                    <div class="name">{{item.EPortName}}</div>
                   </div>
-                </div>              
-              </template> 
+                </div>             
+                <template v-if="item.otherFlight && item.otherFlight.length">
+                  <div v-for="(flight, j) in item.otherFlight" :key="j" class="info info-change">
+                    <div class="change-name"><span>中转{{j+1}}次</span></div>
+                    <div class="info-go">
+                      <div class="time">{{flight.STime}}</div>
+                      <div class="name">{{flight.SPortName}}</div>
+                    </div>
+                    <div class="change"></div>
+                    <div class="info-to">
+                      <div class="time">{{flight.ETime}}</div>
+                      <div class="name">{{flight.EPortName}}</div>
+                    </div>
+                  </div>              
+                </template> 
+              </div>
+              <div v-else  @click="selFlight(item.AirID, index)">
+                <div class="info">
+                  <div class="info-go">
+                    <div class="time">{{item.STime}}</div>
+                    <div class="name">{{item.SPortName}}</div>
+                  </div>
+                    <div class="change other">{{item.AirCode}}</div>
+                  <div class="info-to">
+                    <div class="time">{{item.ETime}}</div>
+                    <div class="name">{{item.EPortName}}</div>
+                  </div>
+                </div>             
+                <template v-if="item.otherFlight && item.otherFlight.length">
+                  <div v-for="(flight, j) in item.otherFlight" :key="j" class="info info-change">
+                    <div class="change-name"><span>中转{{j+1}}次</span></div>
+                    <div class="info-go">
+                      <div class="time">{{flight.STime}}</div>
+                      <div class="name">{{flight.SPortName}}</div>
+                    </div>
+                    <div class="change other">{{flight.AirCode}}</div>
+                    <div class="info-to">
+                      <div class="time">{{flight.ETime}}</div>
+                      <div class="name">{{flight.EPortName}}</div>
+                    </div>
+                  </div>              
+                </template> 
+              </div>
             </div>
             <template v-if="titem && titem.length>1">
               <div v-if="index == othernum" class="moreUp" @click="othernum=-1">
@@ -319,6 +348,14 @@
                 color: #f7a461;
                 text-align: center;
                 font-size: .24rem;
+              }
+              .other{
+                color: #888;
+                font-size: .2rem;
+                line-height: .8rem;
+                background: url('../assets/images/flight.png') no-repeat center;
+                background-size: 1.1rem;
+                background-position-y: .6rem;
               }
             }
             .info-change{

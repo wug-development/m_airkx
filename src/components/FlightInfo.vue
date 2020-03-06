@@ -24,7 +24,7 @@
                   <div>{{startFlight.SPortName}}</div>
                   <div class="air">
                     <img v-if="startFlight.airinfo && startFlight.airinfo.Picture" :src="startFlight.airinfo.Picture" alt="">
-                    {{startFlight.AirCode}}&nbsp;{{startFlight.airinfo && startFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{startFlight.airtype.AirName || startFlight.Jixing }}
+                    {{startFlight.AirCode}}&nbsp;{{startFlight.airinfo && startFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{startFlight.airtype && startFlight.airtype.AirName || startFlight.Jixing }}
                   </div>
                   <div>{{startFlight.EPortName}}</div>
                 </div>
@@ -43,7 +43,7 @@
                       <div>{{item.SPortName}}</div>
                       <div class="air">
                         <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
-                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
+                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{item.airtype && item.airtype.AirName || backFlight.Jixing}}
                       </div>
                       <div>{{item.EPortName}}</div>
                     </div>
@@ -72,7 +72,7 @@
                   <div>{{backFlight.SPortName}}</div>
                   <div class="air">
                     <img v-if="backFlight.airinfo && backFlight.airinfo.Picture" :src="backFlight.airinfo.Picture" alt="">
-                    {{backFlight.AirCode}}&nbsp;{{backFlight.airinfo && backFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{backFlight.airtype.AirName || backFlight.Jixing}}
+                    {{backFlight.AirCode}}&nbsp;{{backFlight.airinfo && backFlight.airinfo.CompanyName}}&nbsp;&nbsp;{{(backFlight.airtype && backFlight.airtype.AirName) || backFlight.Jixing}}
                   </div>
                   <div>{{backFlight.EPortName}}</div>
                 </div>
@@ -91,7 +91,7 @@
                       <div>{{item.SPortName}}</div>
                       <div class="air">
                         <img v-if="item.airinfo && item.airinfo.Picture" :src="item.airinfo.Picture" alt="">
-                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{item.Jixing}}
+                        {{item.AirCode}}&nbsp;{{item.airinfo && item.airinfo.CompanyName}}&nbsp;&nbsp;{{(item.airtype && item.airtype.AirName) || backFlight.Jixing}}
                       </div>
                       <div>{{item.EPortName}}</div>
                     </div>
