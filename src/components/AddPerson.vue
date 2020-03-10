@@ -594,11 +594,11 @@ function countAmount(vue){
     let len = vue.PersonList.length
     let amount = 0
     for(let i in vue.PersonList){
-        if(vue.PersonList[i].type == '1'){
-            amount += p + t
-        }else{
-            amount += p*0.75 + t
-        }
+        //if(vue.PersonList[i].type == '1'){
+        amount += p + t
+        // }else{
+        //     amount += p*0.75 + t
+        // }
     }
     vue.amountPrice = amount
 }

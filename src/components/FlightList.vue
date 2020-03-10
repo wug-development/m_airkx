@@ -505,18 +505,22 @@
                   let dels = []
                   for (let i=0; i<len; i++){
                     let sitem = slist[i]
-                    for(let m=0; m<sitem.length; m++){
-                      let _ix = clist.indexOf(sitem[m].AirCode.substr(0,2))
-                      if (_ix > -1) {
-                        sitem[m].airinfo = regs.data.aircomInfo[_ix]
-                      }
-                      for (let t=0; t<sitem[m].otherFlight.length; t++) {
-                        let _of = sitem[m].otherFlight[t]
-                        let _ixof = clist.indexOf(_of.AirCode.substr(0,2))
-                        if (_ixof > -1) {
-                          _of.airinfo = regs.data.aircomInfo[_ixof]
+                    if (sitem.length > 0) {
+                      for(let m=0; m<sitem.length; m++){
+                        let _ix = clist.indexOf(sitem[m].AirCode.substr(0,2))
+                        if (_ix > -1) {
+                          sitem[m].airinfo = regs.data.aircomInfo[_ix]
+                        }
+                        for (let t=0; t<sitem[m].otherFlight.length; t++) {
+                          let _of = sitem[m].otherFlight[t]
+                          let _ixof = clist.indexOf(_of.AirCode.substr(0,2))
+                          if (_ixof > -1) {
+                            _of.airinfo = regs.data.aircomInfo[_ixof]
+                          }
                         }
                       }
+                    } else {
+                      dels.push(i)
                     }
                     if(vue.flightType === '往返'){
                       let eitem = elist[i]
@@ -647,13 +651,14 @@
 
   //航班排序
   function compare(dlist){
+    console.log(dlist)
     let zf = [];
     let zz = [];
     zf = dlist.filter(function(i){
-      return i[0].otherFlight.length<1
+      return i && i[0].otherFlight.length<1
     })
     zz = dlist.filter(function(i){
-      return i[0].otherFlight.length>0 && i[0].piaojia
+      return i && i[0].otherFlight.length>0 && i[0].piaojia
     })
     zz.sort(function(x,y){
       return parseInt(x[0].piaojia.TicketPrice) - parseInt(y[0].piaojia.TicketPrice)
