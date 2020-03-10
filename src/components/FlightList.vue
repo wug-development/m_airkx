@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-      <div class="flist-body" v-if="isLoading || startList.length">
+      <div class="flist-body" v-if="isLoading && startList.length">
         <ul class="flist-list">
           <li class="flist-item" v-for="(titem, index) in startList" :key="index">
             <div v-for="(item, i) in titem" :key="i" :class='i!=0?"itemboxs":"itembox"'>
