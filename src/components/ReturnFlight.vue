@@ -25,7 +25,7 @@
                     <label>税金￥{{item.jipiao.WFS}}</label>
                   </div>
                   <div class="btnprice">
-                    <span>￥<label>{{item.piaojia.TicketPrice}}</label></span>
+                    <span>￥<label>{{startList[0][0].piaojia.TicketPrice}}</label></span>
                     <a @click="selFlight(item.AirID, index)">预定</a>
                   </div>
                 </div>
