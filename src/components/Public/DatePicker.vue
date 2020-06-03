@@ -47,7 +47,8 @@ export default {
         },
         chooseDate: function(v){
             if(v.date && v.state == ''){
-                this.$emit("chooseDate", v.date);
+                let t = v.date.replace(/\-/g, '/')
+                this.$emit("chooseDate", t)
             }            
         }
     },
