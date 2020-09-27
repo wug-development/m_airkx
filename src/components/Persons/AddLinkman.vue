@@ -51,13 +51,14 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .addlinkman-box{
     height: 100%;
     .header{
       background-color: #f00000;
     }
     .notice{
-      background: url("../../assets/images/notice.png") no-repeat;
+      background: url($imguri + "notice.png") no-repeat;
       background-size: .32rem .32rem;
       background-position-x: .6rem;
       background-position-y: center;

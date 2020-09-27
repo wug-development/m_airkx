@@ -1,12 +1,12 @@
 <template>
   <div id="Header" class="header-box">
-    <div class="logo"><img @click="toHome" src="../../assets/images/logo.png" alt=""> </div>
+    <div class="logo"><img @click="toHome" :src='imguri + "logo.png"' alt=""> </div>
     <div class="tel" v-if="showTel"><a href="tel:4007227722">400-722-7722</a></div>
     <div class="more">
       <div :class='"login "+loginClass' @click="openLogin">
-        <div class="my"><img src="../../assets/images/m-kx_03.png" alt=""></div>
+        <div class="my"><img :src='imguri + "m-kx_03.png"' alt=""></div>
       </div>
-      <img @click="showLayer" class="menu" src="../../assets/images/m-kx_06.png" alt="">
+      <img @click="showLayer" class="menu" :src='imguri + "m-kx_06.png"' alt="">
     </div>
     <Menu :showMenu="showMenu" v-on:closelayer="closeLayer"></Menu>
     <Login :showLogin="showLogin" v-on:closeLogin="closeLogin" v-on:toRegister="toRegister"></Login>

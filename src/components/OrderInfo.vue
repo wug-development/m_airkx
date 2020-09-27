@@ -214,7 +214,7 @@
                 <ul class="bank-list">
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_bj.png" alt="">
+                            <img :src='imguri + "bank/bank_bj.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户名称：北京凯行网航空服务有限公司<br/>
@@ -224,7 +224,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_ny.png" alt="">
+                            <img :src='imguri + "bank/bank_ny.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：中国农业银行东四十条支行<br/>
@@ -234,7 +234,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_jt.png" alt="">
+                            <img :src='imguri + "bank/bank_jt.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：交通银行北京市分行<br/>
@@ -244,7 +244,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_pd.png" alt="">
+                            <img :src='imguri + "bank/bank_pd.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：上海浦东发展银行北京雅宝路支行<br/>
@@ -254,7 +254,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_zg.png" alt="">
+                            <img :src='imguri + "bank/bank_zg.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：北京朝阳北路支行<br/>
@@ -264,7 +264,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_zs.png" alt="">
+                            <img :src='imguri + "bank/bank_zs.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：招商银行北京分行青年路支行<br/>
@@ -274,7 +274,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_gs.png" alt="">
+                            <img :src='imguri + "bank/bank_gs.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：北京分行东城支行东城支营东直门内分理处<br/>
@@ -284,7 +284,7 @@
                     </li>
                     <li class="bank-item">
                         <div class="bank-logo">
-                            <img src="../assets/images/bank/bank_js.png" alt="">
+                            <img :src='imguri + "bank/bank_js.png"' alt="">
                         </div>
                         <div class="bank-info">
                             开户行：中国建设银行北京市分行东直门支行储蓄专柜<br/>
@@ -300,7 +300,7 @@
             <div class="success-box">
                 <div class="title">温馨提示 <div class="close" @click="isSuccess=false">×</div></div>
                 <div class="info">
-                    <img src="../assets/images/success.png" alt="">
+                    <img :src='imguri + "success.png"' alt="">
                     <span>保存成功</span>
                 </div>
             </div>
@@ -523,7 +523,7 @@ export default {
 </script>
 
 <style lang="scss">
-    $red: #f00000;
+@import '@/assets/sass/set.scss';
     @mixin box{
         background-color: #fff;
         position: absolute;
@@ -582,7 +582,7 @@ export default {
                     }
                     .phone{
                         margin-top: .1rem;
-                        background: url('../assets/images/tel.png') no-repeat left center;
+                        background: url($imguri + 'tel.png') no-repeat left center;
                         background-size: auto 80%;
                         background-position-x: .1rem;
                         border: .02rem solid #fff;
@@ -705,7 +705,7 @@ export default {
                         }
                         .change{
                             width: 2rem;
-                            background: url('../assets/images/flight.png') no-repeat center;
+                            background: url($imguri + 'flight.png') no-repeat center;
                             background-size: 1.35rem;
                             color: #f7a461;
                             text-align: center;
@@ -940,32 +940,32 @@ export default {
                         border: 0;
                     }
                     .yhk{
-                        background: url('../assets/images/pay_yhk.png') no-repeat center;
+                        background: url($imguri + 'pay_yhk.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .29rem;
                     }
                     .zfb{
-                        background: url('../assets/images/pay_zfb.png') no-repeat center;
+                        background: url($imguri + 'pay_zfb.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .29rem;
                     }
                     .sm{
-                        background: url('../assets/images/pay_sm.png') no-repeat center;
+                        background: url($imguri + 'pay_sm.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .26rem;
                     }
                     .xj{
-                        background: url('../assets/images/pay_xj.png') no-repeat center;
+                        background: url($imguri + 'pay_xj.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .3rem;
                     }
                     .wx{
-                        background: url('../assets/images/pay_wechar.png') no-repeat center;
+                        background: url($imguri + 'pay_wechar.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .35rem;
                     }
                     .online{
-                        background: url('../assets/images/pay_online.png') no-repeat center;
+                        background: url($imguri + 'pay_online.png') no-repeat center;
                         background-position-x: .2rem;
                         background-size: .39rem;
                     }

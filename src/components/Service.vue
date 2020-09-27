@@ -3,7 +3,7 @@
       <Header :pageTitle="pageTitle"></Header>
       <div class="service-title">联系客服</div>
       <div class="service-bgimg">
-        <img src="../assets/images/kefu-bg_02.png" alt="">
+        <img :src='imguri + "kefu-bg_02.png"' alt="">
       </div>
       <ul class="service-tel-card">
         <li class="tel-book">
@@ -33,7 +33,7 @@
         </li>
       </ul>      
       <div class="service-bgimg">
-        <img src="../assets/images/kefu-bg_04.png" alt="">
+        <img :src='imguri + "kefu-bg_04.png"' alt="">
       </div>
       <Footer></Footer>
     </div>
@@ -59,6 +59,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .servicebox{
     background: linear-gradient(#FADED7, #F8A198);
     .header-ptitle{
@@ -121,19 +122,19 @@
       }
       .tel-book{
         .icon{
-          background: url('../assets/images/lkme-icon_03.png') no-repeat center;
+          background: url($imguri + 'lkme-icon_03.png') no-repeat center;
           background-size: auto .2rem;
         }
       }
       .tel-qy{
         .icon{
-          background: url('../assets/images/lkme-icon_07.png') no-repeat center;
+          background: url($imguri + 'lkme-icon_07.png') no-repeat center;
           background-size: auto .21rem;
         }
       }
       .tel-daili{
         .icon{
-          background: url('../assets/images/lkme-icon_11.png') no-repeat center;
+          background: url($imguri + 'lkme-icon_11.png') no-repeat center;
           background-size: auto .25rem;
         }
       }
@@ -142,7 +143,7 @@
         box-sizing: border-box;
         text-align: left;
         .icon{
-          background: url('../assets/images/lkme-icon_14.png') no-repeat center;
+          background: url($imguri + 'lkme-icon_14.png') no-repeat center;
           background-size: auto .25rem;
         }
         .tel-sub{

@@ -2,26 +2,26 @@
   <div id="Hotel" class="hotel-box">
     <Header></Header>
     <div class="banner">
-      <img src="../assets/images/hotel/hotel-banner.png" alt="">
+      <img :src='imguri + "hotel/hotel-banner.png"' alt="">
     </div>
 
     <div class="hotel-tel">
-      <div><img src="../assets/images/phone.png" alt=""> </div>
+      <div><img :src='imguri + "phone.png"' alt=""> </div>
       <div class="phone">24小时服务联系电话：<span><a href="tel:13911139201">13911139201</a></span></div>
     </div>
 
     <ul class="img-list">
       <li>
-        <img src="../assets/images/hotel/hotel-xinjiapo.png" alt="">
+        <img :src='imguri + "hotel/hotel-xinjiapo.png"' alt="">
       </li>
       <li>
-        <img src="../assets/images/hotel/hotel-luoshangji.png" alt="">
+        <img :src='imguri + "hotel/hotel-luoshangji.png"' alt="">
       </li>
       <li>
-        <img src="../assets/images/hotel/hotel-dongjing.png" alt="">
+        <img :src='imguri + "hotel/hotel-dongjing.png"' alt="">
       </li>
       <li>
-        <img src="../assets/images/hotel/hotel-shouer.png" alt="">
+        <img :src='imguri + "hotel/hotel-shouer.png"' alt="">
       </li>
     </ul>
     <Footer></Footer>

@@ -74,6 +74,7 @@ function getCityList(list, v){
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
     .citylist-box{
         position: fixed;
         left: 0;
@@ -134,7 +135,7 @@ function getCityList(list, v){
                 box-sizing: border-box;
                 border-radius: .08rem;
                 padding-left: .2rem;
-                background: url('../../assets/images/find.png') no-repeat right center;
+                background: url($imguri + 'find.png') no-repeat right center;
                 background-size: auto 80%;
                 background-position-x: 5.9rem;
                 font-size: .24rem;

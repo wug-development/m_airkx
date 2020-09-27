@@ -201,6 +201,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .flightinfo-box{
     min-height: 100%;
     height: 100%;
@@ -325,12 +326,12 @@
             line-height: .6rem;
             font-size: .28rem;
             .tgq{
-              background: url('../assets/images/tgqnotice.png') no-repeat left center;
+              background: url($imguri + 'tgqnotice.png') no-repeat left center;
               background-size: .33rem .33rem;
               padding-left: .5rem;
             }
             .gp{
-              background: url('../assets/images/gpxznotice.png') no-repeat left center;
+              background: url($imguri + 'gpxznotice.png') no-repeat left center;
               background-size: .29rem .33rem;
               padding-left: .5rem;
             }

@@ -39,6 +39,7 @@ Vue.prototype.$http = Axios
 Vue.prototype.utils = common.utils
 Vue.prototype.uri = process.env.API_URL
 Vue.prototype.uriw = process.env.APIW_URL
+Vue.prototype.imguri = process.env.IMG_URL
 Vue.prototype.userID = ''
 Vue.prototype.MessageBox = messagebox
 Vue.prototype.Indicator = indicator

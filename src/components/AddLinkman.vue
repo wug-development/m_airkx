@@ -215,6 +215,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .addlinkman-box{
     position: relative;
     height: 100%;
@@ -230,7 +231,7 @@
       z-index: 1;
     }
     .notice{
-      background: url("../assets/images/notice.png") no-repeat;
+      background: url($imguri + "notice.png") no-repeat;
       background-size: .32rem .32rem;
       background-position-x: .6rem;
       background-position-y: center;

@@ -3,7 +3,7 @@
       <div class="cp-head"><Header></Header></div>
       <div class="complaint-body">
         <div class="banner">
-          <img src="../assets/images/complaint.png" alt="">
+          <img :src='imguri + "complaint.png"' alt="">
         </div>
         <div class="info">
           <div class="jianyi">您对凯行网有任何不满意或好的建议请直言；我们会尽快对您的投诉及建议做出回复。我们欢迎每一位用户对凯行网的服务做出评价，提出建议！</div>

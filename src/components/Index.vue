@@ -12,7 +12,7 @@
           <div :class="tabOut==1?'cur':''" @click="tabOutType(1)">境外始发</div>
         </div>
         <div class="book-change-org" v-else>
-          <img src="../assets/images/m-kx_11.png" alt="">
+          <img :src='imguri + "m-kx_11.png"' alt="">
         </div>
         <ul class="flight-tab">
           <li :class="tab==0?'cur':''" @click="tabType(0)">单程</li>
@@ -67,48 +67,48 @@
         </div>
       </div>
       <div class="more-discount">
-        <img @click="goFirstCabin" src="../assets/images/m-kx_15.png" alt="">
+        <img @click="goFirstCabin" :src='imguri + "m-kx_15.png"' alt="">
       </div>
       <div class="more-discount">
-        <img @click="toQYYJ" src="../assets/images/m-kx_18.png" alt="">
+        <img @click="toQYYJ" :src='imguri + "m-kx_18.png"' alt="">
       </div>
       <div class="qy-comper">
         <ul class="comper-list">
           <li class="comper-item">
-              <img class="img1" src="../assets/images/m-kx_27.png" alt="">
+              <img class="img1" :src='imguri + "m-kx_27.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img2" src="../assets/images/m-kx_21.png" alt="">
+              <img class="img2" :src='imguri + "m-kx_21.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img3" src="../assets/images/m-kx_24.png" alt="">
+              <img class="img3" :src='imguri + "m-kx_24.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img4" src="../assets/images/m-kx_39.png" alt="">
+              <img class="img4" :src='imguri + "m-kx_39.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img5" src="../assets/images/m-kx_33.png" alt="">
+              <img class="img5" :src='imguri + "m-kx_33.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img6" src="../assets/images/m-kx_36.png" alt="">
+              <img class="img6" :src='imguri + "m-kx_36.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img7" src="../assets/images/m-kx_50.png" alt="">
+              <img class="img7" :src='imguri + "m-kx_50.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img8" src="../assets/images/m-kx_47.png" alt="">
+              <img class="img8" :src='imguri + "m-kx_47.png"' alt="">
           </li>
           <li class="comper-item">
-              <img class="img9" src="../assets/images/m-kx_44.png" alt="">
+              <img class="img9" :src='imguri + "m-kx_44.png"' alt="">
           </li>
         </ul>
         <div class="more">了解更多 ></div>
       </div>
       <div class="more-discount">
-        <img @click="toZFCG" src="../assets/images/m-kx_56.png" alt="">
+        <img @click="toZFCG" :src='imguri + "m-kx_56.png"' alt="">
       </div>
       <div class="vipEquity">
-        <img src="../assets/images/air_hyqy.png" alt="">
+        <img :src='imguri + "air_hyqy.png"' alt="">
         <div class="layerbg">
           <span :class="userID?'sp-order':''" @click="gotoMy">我的订单</span>
           <span>我的积分 <label v-if="userID">+{{jifen}}</label></span>
@@ -740,13 +740,14 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .index-box{
     padding: 0;
     background-color: #f4f4f4;
     .index-body{
       padding: .2rem .14rem;
       font-size: .28rem;
-      background: url('../assets/images/m-kx-bg_03.png') no-repeat top center;
+      background: url($imguri + 'm-kx-bg_03.png') no-repeat top center;
       background-size: 100% auto;
       background-color: #f4f4f4;
       .jipiao{
@@ -875,13 +876,13 @@
               width: .56rem;
             }
             .sp-start{
-              background: url('../assets/images/icon_start.png') no-repeat left center;
+              background: url($imguri + 'icon_start.png') no-repeat left center;
               background-size: .27rem;
               padding-left: .34rem;
               width: 1.4rem;
             }
             .sp-end{
-              background: url('../assets/images/icon_end.png') no-repeat left center;
+              background: url($imguri + 'icon_end.png') no-repeat left center;
               background-size: .27rem;
               padding-left: .34rem;
               width: 1.4rem;
@@ -929,7 +930,7 @@
             box-sizing: border-box;
             border-radius: .08rem;
             border: .02rem solid #ccc;
-            background: url('../assets/images/icon_sdate.png') no-repeat left center;
+            background: url($imguri + 'icon_sdate.png') no-repeat left center;
             background-color: #ffffff;
             background-size: .27rem;
             background-position-x: .2rem;
@@ -946,7 +947,7 @@
             content: ' ';
             width: .5rem;
             height: .5rem;
-            background: url('../assets/images/icon_date.png') no-repeat center;
+            background: url($imguri + 'icon_date.png') no-repeat center;
             background-size: .4rem .4rem;
           }
           .btn{
@@ -1122,7 +1123,7 @@
             padding: 0;
           }
           .sp-order{
-            background: url('../assets/images/yjt.png') no-repeat right center;
+            background: url($imguri + 'yjt.png') no-repeat right center;
             background-size: .24rem;
           }
         }

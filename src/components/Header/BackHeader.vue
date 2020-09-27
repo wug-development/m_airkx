@@ -1,9 +1,9 @@
 <template>
   <div id="BackHeader" class="backheader-box">
-    <div class="header-back" @click="backEvent"><img src="../../assets/images/back.png" alt=""> </div>
+    <div class="header-back" @click="backEvent"><img :src='imguri + "back.png"' alt=""> </div>
     <div class="header-ptitle" v-if="ptitle" >{{ptitle}}</div>
     <div class="header-more">
-      <img @click="showLayer" class="menu" src="../../assets/images/menu.png" alt="">
+      <img @click="showLayer" class="menu" :src='imguri + "menu.png"' alt="">
     </div>
     <Menu :showMenu="showMenu" v-on:closelayer="closeLayer"></Menu>
   </div>

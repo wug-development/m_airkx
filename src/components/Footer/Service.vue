@@ -1,6 +1,6 @@
 <template>
   <div id="Service" class="service-box">
-    <div class="diqiu"><img src="../../assets/images/diqiu.png" alt=""></div>
+    <div class="diqiu"><img :src='imguri + "diqiu.png"' alt=""></div>
     <div class="info">
       <div class="title">价格低 服务好 专注机票二十年</div>
       <ul>

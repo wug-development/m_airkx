@@ -158,6 +158,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .returnflight-box{
     min-height: 100%;
     height: 100%;
@@ -343,7 +344,7 @@
               .change{
                 width: 2rem;
                 height: 1rem;
-                background: url('../assets/images/flight.png') no-repeat center;
+                background: url($imguri + 'flight.png') no-repeat center;
                 background-size: 1.35rem;
                 color: #f7a461;
                 text-align: center;
@@ -353,7 +354,7 @@
                 color: #888;
                 font-size: .2rem;
                 line-height: .8rem;
-                background: url('../assets/images/flight.png') no-repeat center;
+                background: url($imguri + 'flight.png') no-repeat center;
                 background-size: 1.1rem;
                 background-position-y: .6rem;
               }

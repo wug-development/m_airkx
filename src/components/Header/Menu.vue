@@ -35,6 +35,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .menu-box{
     position: fixed;
     left: 0;
@@ -71,21 +72,21 @@
           font-size: .28rem;
         }
         .jp{
-          background: url('../../assets/images/jipiao.png') no-repeat left center;
+          background: url($imguri + 'jipiao.png') no-repeat left center;
           background-size: .37rem .26rem;
         }
         .qz{
-          background: url('../../assets/images/qianzheng.png') no-repeat left center;
+          background: url($imguri + 'qianzheng.png') no-repeat left center;
           background-size: .28rem .33rem;
           background-position: .06rem;
         }
         .bx{
-          background: url('../../assets/images/baoxian.png') no-repeat left center;
+          background: url($imguri + 'baoxian.png') no-repeat left center;
           background-size: .27rem .31rem;
           background-position: .06rem;
         }
         .jd{
-          background: url('../../assets/images/jiudian.png') no-repeat left center;
+          background: url($imguri + 'jiudian.png') no-repeat left center;
           background-size: .29rem .31rem;
           background-position: .06rem;
         }

@@ -130,6 +130,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
     .addperson-box{
         position: relative;
         height: 100%;
@@ -150,7 +151,7 @@ export default {
             height: 100%;
             overflow-y: scroll;
             .notice{
-                background: url("../../assets/images/notice.png") no-repeat;
+                background: url($imguri + "notice.png") no-repeat;
                 background-size: .32rem .32rem;
                 background-position-x: .6rem;
                 background-position-y: center;

@@ -2,10 +2,10 @@
   <div id="Safe" class="safe-box">
     <Header></Header>
     <div class="banner">
-      <img src="../assets/images/safe/safe-banner.png" alt="">
+      <img :src='imguri + "safe/safe-banner.png"' alt="">
     </div>
     <div class="info">
-      <img src="../assets/images/safe/safe-body.png" alt="">
+      <img :src='imguri + "safe/safe-body.png"' alt="">
     </div>
     <Footer></Footer>
   </div>

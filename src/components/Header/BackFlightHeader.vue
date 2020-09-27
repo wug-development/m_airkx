@@ -1,9 +1,9 @@
 <template>
   <div id="BackFlightHeader" class="flightheader-box">
-    <div class="header-back" @click="backEvent"><img src="../../assets/images/back-white.png" alt=""> </div>
+    <div class="header-back" @click="backEvent"><img :src='imguri + "back-white.png"' alt=""> </div>
     <div class="header-ptitle" v-if="pTitle" >{{pTitle}}</div>
     <a class="header-phone" href="tel:01064060909" v-if="isShow">
-      <img @click="showLayer" src="../../assets/images/linkphone.png" alt="">
+      <img @click="showLayer" :src='imguri + "linkphone.png"' alt="">
     </a>
   </div>
 </template>

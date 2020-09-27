@@ -119,6 +119,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .login-box{
     position: fixed;
     left: 0;
@@ -214,7 +215,7 @@
           font-size: .24rem;
           line-height: .26rem;
           color: #666;
-          background: url('../../assets/images/question.png') no-repeat left center;
+          background: url($imguri + 'question.png') no-repeat left center;
           background-size: .24rem .24rem;
           padding-left: .3rem;
         }

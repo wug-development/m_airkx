@@ -4,7 +4,7 @@
         <div class="result-body">
             <div class="result-title">
                 <div class="result-bar">
-                    <div class="header-back" @click="goBack"><img src="../assets/images/back-white.png" alt=""> </div>
+                    <div class="header-back" @click="goBack"><img :src='imguri + "back-white.png"' alt=""> </div>
                     <div>去：{{scity}}-{{ecity}}</div>
                 </div>
                 <div class="ftype-date">
@@ -14,20 +14,20 @@
             <div class="result-content">
                 <div v-if="!loading">
                     <div class="result-icon">
-                    <img src="../assets/images/icon-gth.png" alt="">
+                    <img :src='imguri + "icon-gth.png"' alt="">
                     </div>
                     <div class="msg">很遗憾，未查到相关航班！</div>
                     <div v-if="orgtype == '0'">
                         <div class="reason">由于数据传输原因请联系客服人工查询</div>
                         <div class="phone">
-                            <span><img src="../assets/images/icon-phone.png" alt=""></span>
+                            <span><img :src='imguri + "icon-phone.png"' alt=""></span>
                             <span><a href="tel:18601183538">18601183538</a></span>
                         </div>
                     </div>
                     <div v-else>
                         <div class="reason">接口受限，请电话查询</div>
                         <div class="phone">
-                            <span><img src="../assets/images/icon-phone.png" alt=""></span>
+                            <span><img :src='imguri + "icon-phone.png"' alt=""></span>
                             <span><a href="tel:4007227722">400 722 7722</a></span>
                         </div>
                     </div>

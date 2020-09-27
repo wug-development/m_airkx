@@ -46,7 +46,7 @@ module.exports = {
     env: require('./dev.env'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'http://m.airkx.com/',
+    assetsPublicPath: 'http://w.airkx.com/',
     proxyTable: proxy.proxy,
 
     /**

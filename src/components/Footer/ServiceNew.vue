@@ -21,6 +21,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .service-box{
     padding: .1rem .3rem .5rem .3rem;
     border-bottom: .01rem solid #eee;
@@ -64,15 +65,15 @@
                     height: .24rem;
                 }
                 .vip{                    
-                    background: url('../../assets/images/air_service_vip.png') no-repeat center;
+                    background: url($imguri + 'air_service_vip.png') no-repeat center;
                     background-size: auto 100%;
                 }
                 .phone{                    
-                    background: url('../../assets/images/air_service_phone.png') no-repeat center;
+                    background: url($imguri + 'air_service_phone.png') no-repeat center;
                     background-size: auto 100%;
                 }
                 .safe{                    
-                    background: url('../../assets/images/air_service_card.png') no-repeat center;
+                    background: url($imguri + 'air_service_card.png') no-repeat center;
                     background-size: auto 100%;
                 }
             }

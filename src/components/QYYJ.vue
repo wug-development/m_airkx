@@ -2,25 +2,25 @@
     <div id="QYYJ" class="qyyj-box">
         <Header isTel="true"></Header>
         <div class="fc-himg">
-            <img src="../assets/images/qyyj_02.png" alt="">
+            <img :src='imguri + "qyyj_02.png"' alt="">
         </div>
         <div class="fc-content">
             <div class="fimg">
-                <img src="../assets/images/qyyj_05.png" alt="">
+                <img :src='imguri + "qyyj_05.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">可靠的信用资质</div>
                     <div class="f-text">我公司是政府采购机票的定点单位，具备国际航协及国内航协的认可资质，更有近500余家航空公司的机票代理授权协议</div>
                 </div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/qyyj_08.png" alt="">
+                <img :src='imguri + "qyyj_08.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">方便快捷的服务</div>
                     <div class="f-text">平台提供24小时不间断自主查询和预订服务的同时，更有客服专员7X24小时一对一服务，一个电话，一条信息随时随地为您解决订票、出票、改期及退票等问题</div>
                 </div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/qyyj_10.png" alt="">
+                <img :src='imguri + "qyyj_10.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">灵活的结算周期</div>
                     <div class="f-text">公司提供自然月结账模式，更有根据情况提供最长6个月的结算周期；先出票后付款，月底账单一目了然，信用卡、微信、支付宝、支票、公务卡、网上转账等多种支付方式</div>
@@ -31,29 +31,29 @@
             <div class="process-title">企业月结的流程</div>
             <ul class="process-list">
                 <li class="process-item">
-                    <div class="icon-yj yj-right"><img class="yjimg1" src="../assets/images/yj_15.png" alt=""></div>
+                    <div class="icon-yj yj-right"><img class="yjimg1" :src='imguri + "yj_15.png"' alt=""></div>
                     <div class="item-text">与客服专员联系沟通，签订机票预订服务协议书</div>
                 </li>
                 <li class="process-item">
-                    <div class="icon-yj yj-right"><img class="yjimg2" src="../assets/images/yj_24.png" alt=""></div>
+                    <div class="icon-yj yj-right"><img class="yjimg2" :src='imguri + "yj_24.png"' alt=""></div>
                     <div class="item-text">登录自己邮箱根据凯行网发送的链接设定机票预订平台登录密码</div>
                 </li>
                 <li class="process-item">
-                    <div class="icon-yj"><img class="yjimg3" src="../assets/images/yj_18.png" alt=""></div>
+                    <div class="icon-yj"><img class="yjimg3" :src='imguri + "yj_18.png"' alt=""></div>
                     <div class="item-text">登录平台进行机票的查询及预订（也可通过联系客服专员人工预订）</div>
                 </li>
             </ul>
             <ul class="process-list">
                 <li class="process-item">
-                    <div class="icon-yj yj-right"><img class="yjimg1" src="../assets/images/yj_15.png" alt=""></div>
+                    <div class="icon-yj yj-right"><img class="yjimg1" :src='imguri + "yj_15.png"' alt=""></div>
                     <div class="item-text">接收出票信息的短信或邮件通知（便可愉快乘机）</div>
                 </li>
                 <li class="process-item">
-                    <div class="icon-yj yj-right"><img class="yjimg2" src="../assets/images/yj_24.png" alt=""></div>
+                    <div class="icon-yj yj-right"><img class="yjimg2" :src='imguri + "yj_24.png"' alt=""></div>
                     <div class="item-text">退票、改期、轻松如意</div>
                 </li>
                 <li class="process-item">
-                    <div class="icon-yj"><img class="yjimg3" src="../assets/images/yj_18.png" alt=""></div>
+                    <div class="icon-yj"><img class="yjimg3" :src='imguri + "yj_18.png"' alt=""></div>
                     <div class="item-text">月底账单一目了然，确认后支付</div>
                 </li>
             </ul>
@@ -62,31 +62,31 @@
             <div class="comper-title">合作伙伴</div>
             <ul class="comper-list">
                 <li class="comper-item">
-                    <img class="img1" src="../assets/images/m-kx_27.png" alt="">
+                    <img class="img1" :src='imguri + "m-kx_27.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img2" src="../assets/images/m-kx_21.png" alt="">
+                    <img class="img2" :src='imguri + "m-kx_21.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img3" src="../assets/images/m-kx_24.png" alt="">
+                    <img class="img3" :src='imguri + "m-kx_24.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img4" src="../assets/images/m-kx_39.png" alt="">
+                    <img class="img4" :src='imguri + "m-kx_39.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img5" src="../assets/images/m-kx_33.png" alt="">
+                    <img class="img5" :src='imguri + "m-kx_33.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img6" src="../assets/images/m-kx_36.png" alt="">
+                    <img class="img6" :src='imguri + "m-kx_36.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img7" src="../assets/images/m-kx_50.png" alt="">
+                    <img class="img7" :src='imguri + "m-kx_50.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img8" src="../assets/images/m-kx_47.png" alt="">
+                    <img class="img8" :src='imguri + "m-kx_47.png"' alt="">
                 </li>
                 <li class="comper-item">
-                    <img class="img9" src="../assets/images/m-kx_44.png" alt="">
+                    <img class="img9" :src='imguri + "m-kx_44.png"' alt="">
                 </li>
             </ul>
         </div>
@@ -114,6 +114,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
 .qyyj-box{
     margin: 0;
     background-color: #f4f4f4;
@@ -174,7 +175,7 @@ export default {
                     margin: 0 auto;
                     width: 1.54rem;
                     height: 1.54rem;
-                    background: url('../assets/images/index-yj-bg.png') no-repeat center;
+                    background: url($imguri + 'index-yj-bg.png') no-repeat center;
                     background-size: 100%;
                     text-align: center;
                     display: flex;

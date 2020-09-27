@@ -9,7 +9,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-mg.png" alt="">
+            <img :src='imguri + "visa/flag-mg.png"' alt="">
             <span>美国签证</span>
           </div>
           <div class="count">累计办理：23.749.59</div>
@@ -19,7 +19,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-adly.png" alt="">
+            <img :src='imguri + "visa/flag-adly.png"' alt="">
             <span>澳大利亚签证</span>
           </div>
           <div class="count">累计办理：11.720.22</div>
@@ -29,7 +29,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-xjp.png" alt="">
+            <img :src='imguri + "visa/flag-xjp.png"' alt="">
             <span>新加坡签证</span>
           </div>
           <div class="count">累计办理：16.231.51</div>
@@ -39,7 +39,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-teq.png" alt="">
+            <img :src='imguri + "visa/flag-teq.png"' alt="">
             <span>土耳其签证</span>
           </div>
           <div class="count">累计办理：1.345.45</div>
@@ -49,7 +49,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-xby.png" alt="">
+            <img :src='imguri + "visa/flag-xby.png"' alt="">
             <span>西班牙签证</span>
           </div>
           <div class="count">累计办理：14.635.27</div>
@@ -59,7 +59,7 @@
       <li class="item">
         <a href="">
           <div class="title">
-            <img src="../assets/images/visa/flag-dg.png" alt="">
+            <img :src='imguri + "visa/flag-dg.png"' alt="">
             <span>德国签证</span>
           </div>
           <div class="count">累计办理：2.110.74</div>
@@ -68,7 +68,7 @@
       </li>
     </ul>
     <div class="vs-more">
-      <div class="title">更多国家签证 <span>more<img src="../assets/images/jia-red.png" alt=""> </span> </div>
+      <div class="title">更多国家签证 <span>more<img :src='imguri + "jia-red.png"' alt=""> </span> </div>
       <ul class="lab">
         <li>白俄罗斯</li>
         <li>匈牙利</li>
@@ -110,6 +110,7 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .visaSearch-box{
     background-color: #f4f4f4;
     .search{
@@ -134,7 +135,7 @@
         font-size: .28rem;
         text-indent: .4rem;
         outline: none;
-        background: url('../assets/images/find.png') no-repeat right center;
+        background: url($imguri + 'find.png') no-repeat right center;
         background-size: .5rem .5rem;
         background-position-x: 98%;
       }

@@ -2,7 +2,7 @@
   <div id="My" class="my-box">
     <Header :pageTitle="pageTitle" :showTel="showTel"></Header>
     <div class="my-head-box">
-      <div class="set" @click="showLayer = true"><img src="../assets/images/set.png" alt=""></div>
+      <div class="set" @click="showLayer = true"><img :src='imguri + "set.png"' alt=""></div>
       <div class="head"></div>
       <div class="info">
         <span class="name">{{username}}</span>
@@ -64,7 +64,7 @@
           </div>
           <ul v-show="tab==3" v-if="personList.length" class="person-box">
             <li class="person-item" v-for="(item, i) in personList" :key="i" v-if="item.CjrName">
-              <div class="himg"><div><img src="../assets/images/my.png" alt=""></div></div>
+              <div class="himg"><div><img :src='imguri + "my.png"' alt=""></div></div>
               <div class="person-info">
                 <div>{{item.CjrName}} <span v-if="item.Sex">（{{item.Sex=='男'?'先生':'女士'}}）</span></div>
                 <span>出生日期：{{checkTime(item.CSRQ)}}</span>
@@ -299,8 +299,9 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/sass/set.scss';
   .my-box{
-    background: url('../assets/images/my-bg.png') no-repeat top center #efefef;
+    background: url($imguri + 'my-bg.png') no-repeat top center #efefef;
     background-size: 100% auto;
     .my-head-box{
       position: relative;
@@ -321,7 +322,7 @@
         height: 1.28rem;
         margin: 0 auto;
         border-radius: 1.28rem;
-        background: url("../assets/images/head.png") no-repeat center #dcdcdc;
+        background: url($imguri + "head.png") no-repeat center #dcdcdc;
         background-size: 1.28rem 1.28rem;
       }
       .head:after{
@@ -358,7 +359,7 @@
           white-space: nowrap;
         }
         .tel{
-          background: url('../assets/images/tel.png') no-repeat left center;
+          background: url($imguri + 'tel.png') no-repeat left center;
           background-size: auto 90%;
           padding-left: .32rem;
           font-size: .28rem;
@@ -442,7 +443,7 @@
               background-color: #fff;
               .order-item{
                 height: 1rem;
-                background-image: url("../assets/images/air-order.png");
+                background-image: url($imguri + "air-order.png");
                 background-repeat: no-repeat;
                 background-size: .4rem .4rem;
                 background-position: .3rem .3rem;

@@ -2,7 +2,7 @@
     <div id="ZFCG" class="zfcg-box">
         <Header isTel="true"></Header>
         <div>
-            <img src="../assets/images/zfcg_02.png" alt="">
+            <img :src='imguri + "zfcg_02.png"' alt="">
         </div>
         <div class="fc-content">
             <div class="f-other">
@@ -10,28 +10,28 @@
                 <div class="f-text">根据中国民用航空局印发的《关于加强公务机票管理有关事项的通知》以及（财库{2014}33号文件，以下简称《通知》）中明确的购票人在国内出差、因公临时出国时所购买的机票规定。中国财政部和民用航空局经过严格的审核，筛选出政府机票采购供应商</div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/zfcg_05.png" alt="">
+                <img :src='imguri + "zfcg_05.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">可靠的信用资质</div>
                     <div class="f-text">我公司是政府采购机票的定点单位，具备国际航协及国内航协的认可资质，同时具有中航鑫港公司的政府采购机票担保函</div>
                 </div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/zfcg_08.png" alt="">
+                <img :src='imguri + "zfcg_08.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">公务机票采购优惠</div>
                     <div class="f-text">各政府部门、科学院校、医院等事业单位。持有公务卡的公务员、老师、医生等相关人员；在我单位购买机票可享受全价票8.8折，折扣票9.5折的优惠</div>
                 </div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/zfcg_10.png" alt="">
+                <img :src='imguri + "zfcg_10.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">公务卡简捷支付</div>
                     <div class="f-text">购买机票可以使用公务卡进行网上无卡支付，我们也可以上门刷卡支付</div>
                 </div>
             </div>
             <div class="fimg">
-                <img src="../assets/images/zfcg_12.png" alt="">
+                <img :src='imguri + "zfcg_12.png"' alt="">
                 <div class="f-content">
                     <div class="f-title">可签约月结服务</div>
                     <div class="f-text">我公司提供政府单位签约进行先乘机后付款月结服务</div>
