@@ -43,7 +43,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
-    env: require('./dev.env'),
+    env: require('./prod.env'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: 'http://w.airkx.com/',
