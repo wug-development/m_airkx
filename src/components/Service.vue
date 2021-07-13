@@ -22,8 +22,8 @@
         <li class="tel-daili">
           <div class="icon"></div>
           <div class="tel-title">同业代理</div>
-          <div class="tel-phone"><a href="tel:13466638385">13466638385</a> / <a href="tel:18612568286">18612568286</a></div>
-          <div class="tel-sub"><span>王卓</span><span>赵春玲</span></div>
+          <div class="tel-phone"><a href="tel:18601183538">18601183538</a></div>
+          <div class="tel-sub">赵宇</div>
         </li>
         <li class="tel-addr">
           <div class="icon"></div>
