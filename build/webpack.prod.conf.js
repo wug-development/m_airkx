@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const cdnConfig = require('./cdnConfig.js')
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -68,6 +69,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'index.html',
       inject: true,
+      cdnConfig: cdnConfig,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -120,7 +122,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ],
+  // 表示不需要webpack打包的文件 
+  externals: {
+    'vue': 'Vue',
+    'mint-ui': 'MINT',
+    'element-ui': 'ElementUI'
+  }
 })
 
 if (config.build.productionGzip) {
