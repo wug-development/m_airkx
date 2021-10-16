@@ -2,7 +2,7 @@
   <div id="Footer" class="footer-box">
     <div class="link">
       <a href="#/">首页</a>
-      <a href="https://www16.53kf.com/m.php?cid=72173611&arg=10173611&kf_sign=zQxMTMTUyMAyMjEwMTg1MDc0NDA4MDA0&style=1">在线咨询</a>
+      <a href="https://tb.53kf.com/code/client/10173611/1">在线咨询</a>
       <a href="#/service">联系客服</a>
       <a href="#/about">关于凯行</a>
       <a href="#/complaint">投诉建议</a>
